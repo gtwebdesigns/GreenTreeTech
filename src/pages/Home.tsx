@@ -132,7 +132,7 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => {
               onClick={() => setPage('about')}
               className="mt-10 px-6 py-3 border border-brand-green text-brand-green hover:bg-brand-green hover:text-white font-bold rounded-lg transition-all"
             >
-              Learn More About Us
+              Learn More About Us TODAY!
             </button>
           </div>
         </div>
