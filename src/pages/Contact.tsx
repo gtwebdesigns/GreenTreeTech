@@ -1,75 +1,85 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { MapPin, Clock, ShieldCheck } from 'lucide-react';
 
 const Contact = () => {
- const [form, setForm] = useState({
- firstName: '',
- lastName: '',
- email: '',
- message: '',
- });
- const [status, setStatus] = useState<'idle'|'sending'|'sent'|'error'>('idle');
- const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
- setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
- };
-  const onSubmit = async (e: React.FormEvent) => {
- e.preventDefault();
- setStatus('sending');
-
- const res = await fetch('/api/contact', {
- method: 'POST',
- headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify(form),
- });
-  const onSubmit = async (e: React.FormEvent) => {
- e.preventDefault();
- setStatus('sending');
-
- const res = await fetch('/api/contact', {
- method: 'POST',
- headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify(form),
- });
   return (
     <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
         <p className="text-zinc-400">Get in touch for a free diagnostic or service request.</p>
-        <div className="w-20 h-1 bg-brand-green mx-auto mt-4"></div>
+        <div className="w-60 h-1 bg-brand-green mx-auto mt-4"></div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="bg-zinc-900 p-10 rounded-3xl border border-zinc-800">
           <h2 className="text-2xl font-bold text-white mb-8">Send Us a Message</h2>
-          <form className="space-y-6" onSubmit={onSubmit}>
+          
+
+         const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
+<form
+ className="space-y-6"
+ action="https://api.web3forms.com/submit"
+ method="POST"
+>
+ <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+ <input type="hidden" name="subject" value="New message to contact@greentreetech.net (greentreetech.net)" />
+ <input type="hidden" name="from_name" value="GreenTreeTech Website Contact Form" />
+
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  <div>
  <label className="block text-zinc-400 text-sm mb-2">First Name</label>
- <input name="firstName" value={form.firstName} onChange={onChange} required className="w-full ..." />
+ <input
+ type="text"
+ name="first_name"
+ required
+ className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors"
+ />
  </div>
+
  <div>
  <label className="block text-zinc-400 text-sm mb-2">Last Name</label>
- <input name="lastName" value={form.lastName} onChange={onChange} required className="w-full ..." />
+ <input
+ type="text"
+ name="last_name"
+ required
+ className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors"
+ />
  </div>
  </div>
 
  <div>
- <label className="block text-zinc-400 text-sm mb-2">Email</label>
- <input type="email" name="email" value={form.email} onChange={onChange} required className="w-full ..." />
+ <label className="block text-zinc-400 text-sm mb-2">Email Address</label>
+ <input
+ type="email"
+ name="email"
+ required
+ className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors"
+ />
  </div>
 
  <div>
  <label className="block text-zinc-400 text-sm mb-2">Message</label>
- <textarea name="message" value={form.message} onChange={onChange} required rows={6} className="w-full ..." />
+ <textarea
+ name="message"
+ rows={4}
+ required
+ className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors"
+ />
  </div>
 
- <button type="submit" disabled={status==='sending'} className="...">
- {status === 'sending' ? 'Sending...' : 'Send Message'}
+ {/* Honeypot anti-spam */}
+ <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+ <button className="w-full py-4 bg-brand-green hover:bg-brand-green/90 text-white font-bold rounded-lg transition-all">
+ Send Request
  </button>
 
- {status === 'sent' && <p className="text-green-400 text-sm">Message sent.</p>}
- {status === 'error' && <p className="text-red-400 text-sm">Failed to send. Try again.</p>}
- </form>
+ <p className="text-[10px] text-zinc-500 text-center">
+ This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+ </p>
+</form>
+
         </div>
 
         <div className="space-y-8">
