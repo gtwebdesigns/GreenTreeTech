@@ -1,29 +1,38 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import nodemailer from "nodemailer";
 
 const app = express();
-app.use(cors());
+
+app.use(cors({ origin: ["https://greentreetech.net", "https://www.greentreetech.net"] }));
 app.use(express.json());
 
-app.post("/api/generate", async (req, res) => {
+app.post("/api/contact", async (req, res) => {
  try {
- const { prompt } = req.body;
- const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
- const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
- const result = await model.generateContent(prompt);
- res.json({ text: result.response.text() });
+ const { name, email, message } = req.body || {};
+ if (!name || !email || !message) {
+ return res.status(400).json({ ok: false, error: "Missing fields" });
+ }
+
+ const transporter = nodemailer.createTransport({
+ host: process.env.SMTP_HOST,
+ port: Number(process.env.SMTP_PORT || 587),
+ secure: String(process.env.SMTP_PORT) === "465",
+ auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+ });
+
+ await transporter.sendMail({
+ from: `"${name}" <${process.env.SMTP_USER}>`,
+ replyTo: email,
+ to: process.env.MAIL_TO,
+ subject: `GreenTree Tech Contact Form: ${name}`,
+ text: message,
+ });
+
+ return res.json({ ok: true });
  } catch (e) {
- res.status(500).json({ error: "Generation failed" });
+ return res.status(500).json({ ok: false });
  }
 });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "dist")));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "dist", "index.html")));
-
-const port = process.env.PORT || 3000;
-app.listen(port);
+app.listen(process.env.PORT || 3000);
