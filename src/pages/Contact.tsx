@@ -41,9 +41,13 @@ const Contact = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="bg-zinc-900 p-10 rounded-3xl border border-zinc-800">
           <h2 className="text-2xl font-bold text-white mb-8">Send Us a Message</h2>
-          <form className="space-y-6" onSubmit={onSubmit} action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="3c2f3ec9-fd71-4ed9-a1e0-48bc1f3dd3b9">
- <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+         </div>
+
+
+       
+         <form className="space-y-6" onSubmit={onSubmit} action="https://api.web3forms.com/submit" method="POST"
+ <input type="hidden" name="access_key" value="3c2f3ec9-fd71-4ed9-a1e0-48bc1f3dd3b9" />
+ <label className="grid grid-cols-1 md:grid-cols-2 gap-6" </label>
  <div>
  <label className="block text-zinc-400 text-sm mb-2">First Name</label>
  <input name="firstName" value={form.firstName} onChange={onChange} required className="w-full ..." />
@@ -57,7 +61,6 @@ const Contact = () => {
  <div>
  <label className="block text-zinc-400 text-sm mb-2">Email</label>
  <input type="email" name="email" value={form.email} onChange={onChange} required className="w-full ..." />
- </div>
 
  <div>
  <label className="block text-zinc-400 text-sm mb-2">Message</label>
@@ -71,7 +74,7 @@ const Contact = () => {
  {status === 'sent' && <p className="text-green-400 text-sm">Message sent.</p>}
  {status === 'error' && <p className="text-red-400 text-sm">Failed to send. Try again.</p>}
  </form>
-        </div>
+ </div>
 
         <div className="space-y-8">
           <div className="bg-zinc-900 p-8 rounded-3xl border border-zinc-800">
