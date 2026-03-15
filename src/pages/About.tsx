@@ -20,8 +20,8 @@ const About = () => {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
-              <span className="text-brand-green font-bold text-3xl block mb-1">25+</span>
               <span className="text-zinc-500 text-xs uppercase tracking-wider">Years Experience</span>
+              <span className="text-brand-green font-bold text-3xl block mb-1">25+</span>
             </div>
             <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
               <span className="text-zinc-500 text-xs uppercase tracking-wider">I/T & Web Design Since</span>
