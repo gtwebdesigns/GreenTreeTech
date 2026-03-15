@@ -80,7 +80,12 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => {
             <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
               <Globe className="text-brand-green group-hover:text-white w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4">Web Design</h3>
+            <h3 
+  className="text-xl font-bold text-white mb-4 cursor-pointer hover:text-brand-green transition-colors" 
+  onClick={() => setPage('web-design')}
+>
+  Web Design & Hosting
+</h3>
             <p className="text-zinc-400 leading-relaxed">
               We create beautiful, functional websites for startups, real estate, gyms, and more. Proudly serving since 2009.
             </p>
