@@ -18,7 +18,10 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
             Specializing in remote support, website design and hosting, WiFi networking and computer consulting.
           </p>
           <div className="flex space-x-4">
-            <a href="Contact.tsx" className="hover:text-brand-green transition-colors"><Mail className="w-5 h-5" /></a>
+            <h3 
+ className="hover:text-brand-green transition-colors" 
+  onClick={() => setPage('contact')}
+</h3><Mail className="w-5 h-5" /></a>
           </div>
         </div>
         
