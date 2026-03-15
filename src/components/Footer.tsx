@@ -17,8 +17,10 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
             Providing innovative IT and web solutions for business and home since 2009. 
             Specializing in remote support, website design and hosting, WiFi networking and computer consulting.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-brand-green transition-colors"><Mail className="w-5 h-5" /></a>
+            <div className="flex space-x-4">
+            <button onClick={() => setPage('contact')} className="hover:text-brand-green transition-colors cursor-pointer">
+              <Mail className="w-5 h-5" />
+            </button>
           </div>
         </div>
         
