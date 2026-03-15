@@ -24,8 +24,8 @@ const About = () => {
               <span className="text-zinc-500 text-xs uppercase tracking-wider">Years Experience</span>
             </div>
             <div className="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
+              <span className="text-zinc-500 text-xs uppercase tracking-wider">I/T & Web Design Since</span>
               <span className="text-brand-green font-bold text-3xl block mb-1">2009</span>
-              <span className="text-zinc-500 text-xs uppercase tracking-wider">Web Design Since</span>
             </div>
           </div>
         </div>
