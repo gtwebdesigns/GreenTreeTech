@@ -66,7 +66,12 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => {
             <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
               <ShieldCheck className="text-brand-green group-hover:text-white w-6 h-6" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-4"><a href="/src/pages/RemoteServices.tsx">Remote Support</a></h3>
+            <h3 
+  className="text-xl font-bold text-white mb-4 cursor-pointer hover:text-brand-green transition-colors" 
+  onClick={() => setPage('remote')}
+>
+  Remote Services
+</h3>
             <p className="text-zinc-400 leading-relaxed">
               Save time and money with our remote computer services. Many issues can be handled instantly via a secure connection.
             </p>
