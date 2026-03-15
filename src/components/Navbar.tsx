@@ -14,7 +14,7 @@ const Navbar = ({ currentPage, setPage }: { currentPage: Page; setPage: (p: Page
             <div className="w-10 h-10 bg-brand-green rounded-lg flex items-center justify-center mr-3">
               <Monitor className="text-white w-6 h-6" />
             </div>
-            <span className="text-brand-green">
+            <span className="text-brand-green" text-xl font-bold tracking-tight">
  GreenTree <span className="text-xl font-bold text-white tracking-tight">Technology</span>
 </span>
           </div>
