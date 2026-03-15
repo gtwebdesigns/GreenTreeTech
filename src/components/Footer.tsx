@@ -21,7 +21,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
             <h3 
  className="hover:text-brand-green transition-colors" 
   onClick={() => setPage('contact')}
-</h3><Mail className="w-5 h-5" /></a>
+</h3><Mail className="w-5 h-5" />
           </div>
         </div>
         
