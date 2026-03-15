@@ -15,7 +15,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
           </div>
           <p className="text-sm leading-relaxed mb-4 max-w-md">
             Providing innovative IT and web solutions for business and home since 2009. 
-            Specializing in remote support, website design and hosting, and computer consulting.
+            Specializing in remote support, website design and hosting, WiFi networking and computer consulting.
           </p>
           <div className="flex space-x-4">
             <a href="Contact.tsx" className="hover:text-brand-green transition-colors"><Mail className="w-5 h-5" /></a>
@@ -44,7 +44,7 @@ const Footer = ({ setPage }: { setPage: (p: Page) => void }) => (
           <h3 className="text-white font-semibold mb-4">Contact</h3>
           <ul className="space-y-2 text-sm">
             <li>Los Angeles, CA USA</li>
-            <li>By Appointment Only</li>
+            <li>Contact Us for Appointments</li>
             <li>Closed Wed & Sun</li>
             <li className="text-brand-green font-medium">Independently Owned & Operated</li>
           </ul>
