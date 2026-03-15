@@ -6,24 +6,25 @@ const Payment = () => {
 
   const paymentOptions = [
     {
-      name: 'Credit / Debit Card',
-      description: 'Pay securely via Stripe or PayPal',
+      name: 'PayPal / Credit Card',
+      description: 'Pay securely via PayPal (No account needed)',
       icon: <CreditCard className="w-6 h-6 text-brand-green" />,
-      action: () => window.open('https://your-payment-link.com', '_blank'),
+      action: () => window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=greentreepcs@gmail.com&currency_code=USD', '_blank'),
       primary: true
     },
     {
       name: 'Zelle',
       description: 'Pay using our business email',
       icon: <DollarSign className="w-6 h-6 text-blue-400" />,
-      details: 'CaptainJackOC@gmail.com',
+      details: 'greentreepcs@gmail.com',
       copyable: true
     },
     {
       name: 'Venmo',
-      description: 'Pay via @GreenTreeTech',
+      description: 'Pay using our business email',
       icon: <Smartphone className="w-6 h-6 text-blue-500" />,
-      action: () => window.open('https://venmo.com/u/GreenTreeTech', '_blank')
+      details: 'greentreepcs@gmail.com',
+      copyable: true
     }
   ];
 
@@ -49,7 +50,7 @@ const Payment = () => {
         </p>
         
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 relative z-10">
-          {['Visa', 'Mastercard', 'Zelle', 'Venmo'].map((method) => (
+          {['Visa/MC', 'PayPal', 'Zelle', 'Venmo'].map((method) => (
             <div key={method} className="bg-zinc-800/50 p-3 rounded-xl border border-zinc-700/50 flex items-center justify-center">
               <span className="text-zinc-300 text-xs font-medium uppercase tracking-wider">{method}</span>
             </div>
