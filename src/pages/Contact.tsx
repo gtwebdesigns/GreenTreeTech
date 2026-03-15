@@ -47,7 +47,7 @@ const Contact = () => {
        <form
  className="space-y-6" onSubmit={onSubmit} action="https://api.web3forms.com/submit" method="POST">
  <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} />
- <label className="grid grid-cols-1 md:grid-cols-2 gap-6" </label>
+ <label className="grid grid-cols-1 md:grid-cols-2 gap-6"</label>
  <div>
  <label className="block text-zinc-400 text-sm mb-2">First Name</label>
  <input name="firstName" value={form.firstName} onChange={onChange} required className="w-full ..." />
